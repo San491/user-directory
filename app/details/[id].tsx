@@ -1,4 +1,3 @@
-// app/details.tsx
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
 import { useSearchParams } from 'expo-router/build/hooks';
@@ -30,13 +29,12 @@ export default function DetailsScreen() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Using useSearchParams and get to access query parameters
   const searchParams = useSearchParams();
-  const id = searchParams.get('id');  // Fetch the 'id' from the query string
+  const id = searchParams.get('id');
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      if (!id) return;  // Ensure id is available before making the API call
+      if (!id) return;
 
       setLoading(true);
       try {
@@ -51,7 +49,7 @@ export default function DetailsScreen() {
     };
 
     fetchUserDetails();
-  }, [id]);  // Fetch user details when id changes
+  }, [id]);
 
   if (loading) {
     return <ActivityIndicator size="large" />;
@@ -72,15 +70,11 @@ export default function DetailsScreen() {
           <Text style={styles.name}>{user.name}</Text>
           <Text style={styles.email}>Email: {user.email}</Text>
           <Text style={styles.phone}>Phone: {user.phone}</Text>
-
-          {/* Render address fields separately */}
           <Text style={styles.address}>Street: {user.address.street}</Text>
           <Text style={styles.address}>Suite: {user.address.suite}</Text>
           <Text style={styles.address}>City: {user.address.city}</Text>
           <Text style={styles.address}>Zipcode: {user.address.zipcode}</Text>
           <Text style={styles.address}>Geo (Lat, Lng): {user.address.geo.lat}, {user.address.geo.lng}</Text>
-
-          {/* Access company properties individually */}
           <Text style={styles.company}>Company Name: {user.company.name}</Text>
           <Text style={styles.company}>Catchphrase: {user.company.catchPhrase}</Text>
           <Text style={styles.company}>BS: {user.company.bs}</Text>
