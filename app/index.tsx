@@ -40,16 +40,16 @@ export default function HomeScreen() {
 
   return (
     <>
-    <Appbar.Header style={styles.header}>
-        <Appbar.Content title="User Directory"/>
+      <Appbar.Header style={styles.header}>
+        <Appbar.Content title="User Directory" />
       </Appbar.Header>
-    <FlatList
-      style={styles.list}
-      data={users}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id.toString()}
+      <FlatList
+        style={styles.list}
+        data={users}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
       />
-      </>
+    </>
   );
 }
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '',
   },
-  list: {backgroundColor: 'black'},
+  list: { backgroundColor: 'black', paddingTop: 10 },
   card: { margin: 10, borderRadius: 8 },
   name: { fontSize: 18, fontWeight: 'bold' },
   email: { fontSize: 14 },

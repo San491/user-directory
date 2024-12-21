@@ -1,5 +1,8 @@
 {
   "expo": {
+    "splash": {
+      "backgroundColor": "#black"
+    },
     "name": "client-user-directory",
     "slug": "client-user-directory",
     "version": "1.0.0",
